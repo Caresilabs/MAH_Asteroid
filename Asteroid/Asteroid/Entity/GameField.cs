@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Asteroid.Entity
 {
-    class GameField
+    public class GameField
     {
     }
 }

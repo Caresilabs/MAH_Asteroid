@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Asteroid.Model
 {
-    class World
+    public class World
     {
     }
 }

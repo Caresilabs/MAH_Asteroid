@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Asteroid.Controller;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -16,8 +17,10 @@ namespace Asteroid
     /// </summary>
     public class Start : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
+
+        private Screen currentScreen;
 
         public Start()
         {
@@ -33,22 +36,22 @@ namespace Asteroid
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            Assets.load(Content);
 
-            // TODO: use this.Content to load your game content here
+            // init startup screen
+            setScreen(getStartScreen());
         }
 
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
+            // Unload any non ContentManager content here
+            Assets.unload();
         }
 
         protected override void Update(GameTime gameTime)
@@ -57,6 +60,11 @@ namespace Asteroid
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
+            // get second between last frame and current frame, used for fair physics manipulation and not based on frames
+            float delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            // then update the screen
+            currentScreen.update(delta);
 
             base.Update(gameTime);
         }
@@ -65,8 +73,31 @@ namespace Asteroid
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            spriteBatch.Begin();
+            currentScreen.draw(spriteBatch);
+            spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        internal void setScreen(Screen newScreen)
+        {
+            if (newScreen == null) return;
+
+            // Dispose old screen
+            if (currentScreen != null)
+                currentScreen.dispose();
+
+            // init new screen
+            currentScreen = newScreen;
+            newScreen.setGame(this);
+            newScreen.setGraphics(GraphicsDevice);
+            currentScreen.init();
+        }
+
+        private Screen getStartScreen()
+        {
+            return new GameScreen();
         }
     }
 }
