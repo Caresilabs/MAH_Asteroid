@@ -37,6 +37,9 @@ namespace Asteroid
         protected override void Initialize()
         {
             base.Initialize();
+
+            //GameDefaults s = new GameDefaults();
+            //s.InvertYAxis
         }
 
         protected override void LoadContent()
@@ -73,9 +76,8 @@ namespace Asteroid
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
+            // Draw screen
             currentScreen.draw(spriteBatch);
-            spriteBatch.End();
 
             base.Draw(gameTime);
         }

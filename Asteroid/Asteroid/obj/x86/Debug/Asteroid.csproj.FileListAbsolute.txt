@@ -5,3 +5,10 @@ C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Debu
 C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Debug\Asteroid.exe
 C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Debug\Asteroid.pdb
 C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\gravel.xnb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\gravel.xnb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Asteroid.exe
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Asteroid.pdb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Debug\Asteroid.csprojResolveAssemblyReference.cache
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Debug\Asteroid.exe
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Debug\Asteroid.pdb

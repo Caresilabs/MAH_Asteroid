@@ -28,6 +28,14 @@ namespace Asteroid.Controller
             input.update(delta);
 
             world.update(delta);
+
+            updatePlayer(delta);
+        }
+
+        private void updatePlayer(float delta)
+        {
+            // TODO follow player
+            renderer.getCamera().setPosition(world.getPlayer().getPosition());
         }
 
         public override void draw(SpriteBatch batch)
@@ -35,9 +43,12 @@ namespace Asteroid.Controller
             getGraphics().Clear(Color.Magenta);
 
             // Draw game
-            renderer.render(batch);
+            renderer.render(batch, getGraphics());
 
             //Draw HUD
+            batch.Begin();
+
+            batch.End();
            
         }
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Asteroid.Physic;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,19 +9,25 @@ namespace Asteroid.Entity
 {
     public class Asteroid : GameEntity
     {
-        public Asteroid(float x, float y) : base(x, y)
+
+        public enum AsteroidState
+        {
+            BIG, SMALL, DEAD
+        }
+
+        public Asteroid(Texture2D texture, float x, float y) : base(texture, x, y, 2, 2)
         {
 
         }
 
         public override void update(float delta)
         {
-            throw new NotImplementedException();
+
+            Physics.processCollision(this);
         }
 
-        public override void draw(Microsoft.Xna.Framework.Graphics.SpriteBatch batch)
+        public override void collide(GameEntity entity)
         {
-            throw new NotImplementedException();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Asteroid
 {
     public class Assets
     {
-        public static Dictionary<String, Texture2D> textures;
+        private static Dictionary<String, Texture2D> textures;
         private static ContentManager manager;
 
         public static void load(ContentManager manager) {
@@ -25,7 +25,7 @@ namespace Asteroid
             textures.Add(path, manager.Load<Texture2D>(path));
         }
 
-        public Texture2D getTexture(string path) {
+        public static Texture2D getTexture(string path) {
             return textures[path];
         }
 
