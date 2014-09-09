@@ -20,7 +20,7 @@ namespace Asteroid.Controller
         {
             this.world = new World();
             this.renderer = new WorldRenderer(world);
-            this.input = new Input(world.getPlayer());
+            this.input = new Input(this, world.getPlayer());
         }
 
         public override void update(float delta)
@@ -55,6 +55,11 @@ namespace Asteroid.Controller
         public override void dispose()
         {
 
+        }
+
+        public World getWorld()
+        {
+            return world;
         }
 
         

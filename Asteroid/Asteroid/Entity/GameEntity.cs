@@ -6,14 +6,21 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Asteroid.Physic;
 using Asteroid.Tools;
+using Asteroid.Model;
 
 namespace Asteroid.Entity
 {
     public abstract class GameEntity : ICollidable
     {
+        public static World world;
+
         // Defaults
-        private float maxSpeed = 1;
-        private float speed = 2;
+        private float maxSpeed = 2;
+        private float speed = 40;
+
+        private float friction = .1f;
+
+        private bool isAlive;
 
         private Texture2D texture;
 
@@ -39,6 +46,7 @@ namespace Asteroid.Entity
             this.bounds = new Rectangle();
             this.width = width;
             this.height = height;
+            this.isAlive = true;
 
             updateBounds();
         }
@@ -49,8 +57,8 @@ namespace Asteroid.Entity
             velocity.Y += acceleration.Y * delta;
 
             // Friction
-            velocity.X *= Math.Min(delta * 70, .98f);
-            velocity.Y *= Math.Min(delta * 70, .98f);
+            velocity.X *= Math.Min((1 - friction), 1f);
+            velocity.Y *= Math.Min((1 - friction), 1f);
 
             MathUtils.clamp(velocity, -maxSpeed, maxSpeed);
 
@@ -67,23 +75,41 @@ namespace Asteroid.Entity
 
         public abstract void collide(GameEntity entity);
 
+        public void kill()
+        {
+            isAlive = false;
+        }
+
+        public bool isEntityAlive()
+        {
+            return isAlive;
+        }
+
         public void setPosition(float x, float y)
         {
-            position.X = x;
-            position.Y = y;
+            this.position.X = x;
+            this.position.Y = y;
 
             updateBounds();
         }
 
         public void setX(float x)
         {
-            position.X = x;
+            this.position.X = x;
             updateBounds();
         }
 
         public void setY(float y)
         {
-            position.Y = y;
+            this.position.Y = y;
+            updateBounds();
+        }
+
+        public void setSize(float width, float height)
+        {
+            this.width = width;
+            this.height = height;
+
             updateBounds();
         }
 
@@ -102,12 +128,12 @@ namespace Asteroid.Entity
 
         public void rotate(float radians)
         {
-            rotation += radians;
+            this.rotation += radians;
         }
 
         public void setRotation(float radians)
         {
-            rotation = radians;
+            this.rotation = radians;
         }
 
         public float getRotation()
@@ -127,10 +153,10 @@ namespace Asteroid.Entity
 
         public void addAcceleration(float x, float y)
         {
-            acceleration.X += x;
-            acceleration.Y += y;
+            velocity.X += x;
+            velocity.Y += y;
 
-            MathUtils.clamp(acceleration, -maxSpeed, maxSpeed);
+            MathUtils.clamp(velocity, -maxSpeed, maxSpeed);
         }
 
         public void setAcceleration(float x, float y)
@@ -159,20 +185,37 @@ namespace Asteroid.Entity
             return maxSpeed;
         }
 
+        public void setVelocity(float x, float y)
+        {
+            this.velocity.X = x;
+            this.velocity.Y = y;
+        }
+
+        public void addVelocityStep()
+        {
+            position.X += velocity.X * 1/30f;
+            position.Y += velocity.Y * 1/30f;
+        }
+
+        public Vector2 getVelocity()
+        {
+            return velocity;
+        }
+
         public void flipVelocity()
         {
-            velocity.X *= -1;
-            velocity.Y *= -1;
+            this.velocity.X *= -1;
+            this.velocity.Y *= -1;
         }
 
         public void flipVelocityX()
         {
-            velocity.X *= -1;
+            this.velocity.X *= -1;
         }
 
         public void flipVelocityY()
         {
-            velocity.Y *= -1;
+            this.velocity.Y *= -1;
         }
 
         public Vector2 getAcceleration()
@@ -188,6 +231,11 @@ namespace Asteroid.Entity
         public void setTexture(Texture2D tex)
         {
             this.texture = tex;
+        }
+
+        public void setFriction(float friction)
+        {
+            this.friction = friction;
         }
     }
 }

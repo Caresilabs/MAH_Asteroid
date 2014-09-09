@@ -37,9 +37,8 @@ namespace Asteroid
         protected override void Initialize()
         {
             base.Initialize();
-
-            //GameDefaults s = new GameDefaults();
-            //s.InvertYAxis
+            
+            this.IsMouseVisible = true;
         }
 
         protected override void LoadContent()

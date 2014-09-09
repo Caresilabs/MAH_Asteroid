@@ -6,6 +6,7 @@ using Asteroid.Entity;
 using Asteroid.Model;
 using Microsoft.Xna.Framework.Graphics;
 using Asteroid.Tools;
+using Microsoft.Xna.Framework;
 
 namespace Asteroid.View
 {
@@ -14,10 +15,16 @@ namespace Asteroid.View
         private World world;
         private Camera2D camera;
 
+        private Texture2D bg;
+        private Rectangle bgBounds;
+
         public WorldRenderer(World world)
         {
             this.world = world;
             this.camera = new Camera2D();
+            this.bg = Assets.getTexture("Graphics/stars");
+            this.bgBounds = new Rectangle(world.getField().getBounds().X - 400, world.getField().getBounds().Y - 400,
+                world.getField().getBounds().Width*2, world.getField().getBounds().Height*2);
         }
 
         public void render(SpriteBatch batch, GraphicsDevice device)
@@ -30,15 +37,27 @@ namespace Asteroid.View
                         null,
                         camera.getMatrix(device));
 
+            drawBackground(batch);
+
             world.getField().draw(batch);
 
+            drawEntities(batch);
+
+            batch.End();
+        }
+
+        private void drawEntities(SpriteBatch batch)
+        {
             // todo render game
             foreach (GameEntity entity in world.getEntities())
             {
                 entity.draw(batch);
             }
+        }
 
-            batch.End();
+        private void drawBackground(SpriteBatch batch)
+        {
+            batch.Draw(bg, bgBounds, null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 1);
         }
 
         public Camera2D getCamera()

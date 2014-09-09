@@ -74,7 +74,7 @@
   <ItemGroup>
     <Compile Include="Assets.cs" />
     <Compile Include="Controller\GameScreen.cs" />
-    <Compile Include="Entity\Asteroid.cs" />
+    <Compile Include="Entity\AsteroidEntity.cs" />
     <Compile Include="Entity\Bullet.cs" />
     <Compile Include="Entity\GameEntity.cs" />
     <Compile Include="Entity\GameField.cs" />

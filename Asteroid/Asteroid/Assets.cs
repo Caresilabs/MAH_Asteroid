@@ -19,6 +19,8 @@ namespace Asteroid
 
             // Load our assets
             loadTexture("Graphics/gravel");
+            loadTexture("Graphics/stars");
+            loadTexture("Graphics/pixel");
         }
 
         private static void loadTexture(string path) {

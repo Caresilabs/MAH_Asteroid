@@ -8,7 +8,25 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\gravel.xnb</Output>
-      <Time>2014-09-09T13:56:18.5948876+02:00</Time>
+      <Time>2014-09-09T19:31:52.0124532+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Graphics\pixel.PNG</Source>
+      <Name>Graphics\pixel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\pixel.xnb</Output>
+      <Time>2014-09-09T20:36:04.1657838+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Graphics\stars.jpg</Source>
+      <Name>Graphics\stars</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\stars.xnb</Output>
+      <Time>2014-09-09T20:28:50.0599543+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -12,3 +12,5 @@ C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Debug\Ast
 C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Debug\Asteroid.exe
 C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Debug\Asteroid.pdb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\pixel.xnb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\stars.xnb
