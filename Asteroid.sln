@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asteroid", "Asteroid\Asteroid\Asteroid.csproj", "{5230E365-FC7E-4B60-904A-54AF7035A8DB}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "AsteroidContent", "Asteroid\AsteroidContent\AsteroidContent.contentproj", "{B22DFBE4-E29D-45BA-9B78-5A6A1F89A526}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5230E365-FC7E-4B60-904A-54AF7035A8DB}.Debug|x86.ActiveCfg = Debug|x86
+		{5230E365-FC7E-4B60-904A-54AF7035A8DB}.Debug|x86.Build.0 = Debug|x86
+		{5230E365-FC7E-4B60-904A-54AF7035A8DB}.Release|x86.ActiveCfg = Release|x86
+		{5230E365-FC7E-4B60-904A-54AF7035A8DB}.Release|x86.Build.0 = Release|x86
+		{B22DFBE4-E29D-45BA-9B78-5A6A1F89A526}.Debug|x86.ActiveCfg = Debug|x86
+		{B22DFBE4-E29D-45BA-9B78-5A6A1F89A526}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
