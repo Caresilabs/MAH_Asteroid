@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Asteroid.Entity;
 using Asteroid.Model;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -19,6 +20,10 @@ namespace Asteroid.View
         public void render(SpriteBatch batch)
         {
             // todo render game
+            foreach (GameEntity entity in world.getEntities())
+            {
+                entity.draw(batch);
+            }
         }
     }
 }

@@ -14,12 +14,14 @@ namespace Asteroid.Entity
 
         public override void update(float delta)
         {
-            throw new NotImplementedException();
+            base.update(delta);
+
+            //update player
         }
 
         public override void draw(Microsoft.Xna.Framework.Graphics.SpriteBatch batch)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

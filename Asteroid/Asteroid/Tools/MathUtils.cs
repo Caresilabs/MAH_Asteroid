@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace Asteroid.Tools
 {
@@ -24,6 +25,18 @@ namespace Asteroid.Tools
         public static float atan(float degree)
         {
             return (float)Math.Atan((double)degree);
+        }
+
+        /**
+         * Clamps the vector within target range
+         */
+        public static void clamp(Vector2 vec, float min, float max)
+        {
+            if (vec.X < min) vec.X = min;
+            else if (vec.X > max) vec.X = max;
+
+            if (vec.Y < min) vec.Y = min;
+            else if (vec.Y > max) vec.Y = max;
         }
     }
 }

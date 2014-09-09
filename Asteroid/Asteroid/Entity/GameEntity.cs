@@ -9,6 +9,9 @@ namespace Asteroid.Entity
 {
     public abstract class GameEntity
     {
+        private float maxSpeed = 10;
+
+
         private Vector2 position;
         private Vector2 velocity;
         private Vector2 acceleration;
@@ -20,7 +23,14 @@ namespace Asteroid.Entity
             acceleration = new Vector2();
         }
 
-        public abstract void update(float delta);
+        public virtual void update(float delta) {
+            velocity.X += acceleration.X * delta;
+            velocity.Y += acceleration.Y * delta;
+
+
+            position.X += velocity.X * delta;
+            position.X += velocity.Y * delta;
+        }
 
         public abstract void draw(SpriteBatch batch);
 
