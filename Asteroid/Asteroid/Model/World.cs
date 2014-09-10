@@ -51,14 +51,14 @@ namespace Asteroid.Model
         {
             if (type == AsteroidEntity.Type.BIG)
             {
-                AsteroidEntity a = new AsteroidEntity(Assets.getTexture("Graphics/gravel"), type, pos.X, pos.Y);
+                AsteroidEntity a = new AsteroidEntity(Assets.getTexture("Graphics/astroid"), type, pos.X, pos.Y);
                 addEntity(a);
             }
             else if (type == AsteroidEntity.Type.SMALL)
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    AsteroidEntity a = new AsteroidEntity(Assets.getTexture("Graphics/gravel"), type, pos.X, pos.Y);
+                    AsteroidEntity a = new AsteroidEntity(Assets.getTexture("Graphics/astroid"), type, pos.X, pos.Y);
                     addEntity(a);
                 }
             }

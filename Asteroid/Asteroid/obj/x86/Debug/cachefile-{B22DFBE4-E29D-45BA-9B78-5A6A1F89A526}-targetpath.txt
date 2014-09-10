@@ -1,3 +1,7 @@
 Content\Graphics\gravel.xnb
 Content\Graphics\pixel.xnb
 Content\Graphics\stars.xnb
+Content\Graphics\astroid.xnb
+Content\Graphics\player.xnb
+Content\Graphics\pointer.xnb
+Content\Font\font.xnb

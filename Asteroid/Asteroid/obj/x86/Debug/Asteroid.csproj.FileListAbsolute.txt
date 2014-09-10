@@ -14,3 +14,9 @@ C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Debug\Ast
 C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Debug\Asteroid.pdb
 C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\pixel.xnb
 C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\stars.xnb
+C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\pixel.xnb
+C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\stars.xnb
+C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\astroid.xnb
+C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\player.xnb
+C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\pointer.xnb
+C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Font\font.xnb

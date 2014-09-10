@@ -12,15 +12,21 @@ namespace Asteroid
         private static Dictionary<String, Texture2D> textures;
         private static ContentManager manager;
 
+        public static SpriteFont font;
+
         public static void load(ContentManager manager) {
             Assets.manager = manager;
             textures = new Dictionary<string, Texture2D>();
 
-
             // Load our assets
-            loadTexture("Graphics/gravel");
+            loadTexture("Graphics/player");
+            loadTexture("Graphics/astroid");
             loadTexture("Graphics/stars");
             loadTexture("Graphics/pixel");
+            loadTexture("Graphics/pointer");
+
+            // Load font 
+            font = manager.Load<SpriteFont>("Font/font");
         }
 
         private static void loadTexture(string path) {

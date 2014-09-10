@@ -15,11 +15,13 @@ namespace Asteroid.Controller
         private World world;
         private WorldRenderer renderer;
         private Input input;
+        private HUD hud;
 
         public override void init()
         {
             this.world = new World();
             this.renderer = new WorldRenderer(world);
+            this.hud = new HUD(this);
             this.input = new Input(this, world.getPlayer());
         }
 
@@ -47,7 +49,7 @@ namespace Asteroid.Controller
 
             //Draw HUD
             batch.Begin();
-
+            hud.draw(batch);
             batch.End();
            
         }

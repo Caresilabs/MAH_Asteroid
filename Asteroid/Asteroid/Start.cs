@@ -19,13 +19,19 @@ namespace Asteroid
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
+        private SpriteFont font;
 
         private Screen currentScreen;
+
+        private Texture2D mouseTex;
+        private Vector2 mousePosition;
 
         public Start()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            //graphics.ToggleFullScreen();
+            // this.IsMouseVisible = true; todo
         }
 
         /// <summary>
@@ -37,14 +43,15 @@ namespace Asteroid
         protected override void Initialize()
         {
             base.Initialize();
-            
-            this.IsMouseVisible = true;
         }
 
         protected override void LoadContent()
         {
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            this.spriteBatch = new SpriteBatch(GraphicsDevice);
             Assets.load(Content);
+
+            this.mouseTex = Assets.getTexture("Graphics/pointer");
+            this.mousePosition = new Vector2();
 
             // init startup screen
             setScreen(getStartScreen());
@@ -65,6 +72,10 @@ namespace Asteroid
             // get second between last frame and current frame, used for fair physics manipulation and not based on frames
             float delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+            //update mouse
+            mousePosition.X = Mouse.GetState().X - mouseTex.Width / 2;
+            mousePosition.Y = Mouse.GetState().Y - mouseTex.Height / 2;
+
             // then update the screen
             currentScreen.update(delta);
 
@@ -78,6 +89,9 @@ namespace Asteroid
             // Draw screen
             currentScreen.draw(spriteBatch);
 
+            spriteBatch.Begin();
+            spriteBatch.Draw(mouseTex, mousePosition, Color.White);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
 

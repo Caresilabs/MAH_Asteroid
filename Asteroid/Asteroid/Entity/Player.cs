@@ -8,12 +8,12 @@ namespace Asteroid.Entity
 {
     public class Player : GameEntity
     {
-        public const float width = 62;
-        public const float height = 62;
+        public const float width = 58;
+        public const float height = 58;
 
         private int health;
 
-        public Player(float x, float y) : base(Assets.getTexture("Graphics/gravel"), x, y, width, height)
+        public Player(float x, float y) : base(Assets.getTexture("Graphics/player"), x, y, width, height)
         {
             this.health = 3;
         }
