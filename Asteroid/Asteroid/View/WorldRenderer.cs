@@ -46,6 +46,8 @@ namespace Asteroid.View
 
             drawEntities(batch);
 
+            world.getEffects().draw(batch);
+
             batch.End();
         }
 

@@ -22,6 +22,7 @@ namespace Asteroid.Model
         private Player player;
         private GameField field;
         private BulletPool bulletPool;
+        private FXManager effects;
 
         private float ViewPortWidth;
         private float ViewPortHeight;
@@ -36,6 +37,7 @@ namespace Asteroid.Model
 
             this.field = new GameField((int)width, (int)height);
             this.bulletPool = new BulletPool();
+            this.effects = new FXManager();
 
             this.entities = new List<GameEntity>();
             this.deadEntities = new List<GameEntity>();
@@ -74,6 +76,11 @@ namespace Asteroid.Model
         {
             if (MathUtils.random(500) > 490)
                 spawnAsteroid();
+
+            //Update particles
+            effects.update(delta);
+
+           // effects.explosion(Vector2.Zero);
 
             foreach (GameEntity entity in entities)
             {
@@ -173,6 +180,11 @@ namespace Asteroid.Model
         public Player getPlayer()
         {
             return player;
+        }
+
+        public FXManager getEffects()
+        {
+            return effects;
         }
 
     }
