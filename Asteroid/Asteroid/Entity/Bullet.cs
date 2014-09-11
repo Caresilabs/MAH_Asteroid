@@ -41,6 +41,7 @@ namespace Asteroid.Entity
             setPosition(-1000, -1000);
             setAcceleration(0, 0);
             setVelocity(0, 0);
+            revivie();
         }
 
         public override void collide(GameEntity entity)

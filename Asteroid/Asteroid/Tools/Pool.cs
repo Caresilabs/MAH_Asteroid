@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Asteroid.Entity;
 
 namespace Asteroid.Tools
 {
@@ -51,7 +52,7 @@ namespace Asteroid.Tools
 
         private void reset(T obj)
         {
-            if (obj.GetType() == typeof(IPoolable))
+            if (obj is IPoolable)
                 ((IPoolable)obj).reset();
             else
                 throw new Exception("The object is not typeof @Poolable");

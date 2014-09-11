@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets.cs" />
+    <Compile Include="Controller\IntroScreen.cs" />
     <Compile Include="Controller\GameScreen.cs" />
     <Compile Include="Entity\AsteroidEntity.cs" />
     <Compile Include="Entity\Bullet.cs" />

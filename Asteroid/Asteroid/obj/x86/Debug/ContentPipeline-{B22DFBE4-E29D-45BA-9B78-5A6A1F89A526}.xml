@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\astroid.xnb</Output>
-      <Time>2014-09-10T13:24:03.9583929+02:00</Time>
+      <Time>2014-09-11T12:05:25.1905926+02:00</Time>
     </Item>
     <Item>
       <Source>Graphics\player.png</Source>
@@ -53,7 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\pointer.xnb</Output>
-      <Time>2014-09-10T13:45:54.1991581+02:00</Time>
+      <Time>2014-09-11T12:06:25.529631+02:00</Time>
     </Item>
     <Item>
       <Source>Font\font.spritefont</Source>
@@ -62,7 +62,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Font\font.xnb</Output>
-      <Time>2014-09-10T13:51:13.1863124+02:00</Time>
+      <Time>2014-09-11T12:27:38.5991084+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

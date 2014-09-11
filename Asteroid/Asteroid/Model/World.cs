@@ -98,6 +98,9 @@ namespace Asteroid.Model
         {
             for (int i = 0; i < deadEntities.Count; i++)
             {
+                if (deadEntities[i].GetType() ==  typeof(Bullet)) {
+                    bulletPool.ReleaseObject((Bullet)deadEntities[i]);
+                }
                 entities.Remove(deadEntities[i]);
             }
             deadEntities.Clear();

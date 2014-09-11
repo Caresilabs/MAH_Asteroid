@@ -30,6 +30,8 @@ namespace Asteroid
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            //graphics.PreferredBackBufferWidth = 720;
+            //graphics.ApplyChanges();
             //graphics.ToggleFullScreen();
             // this.IsMouseVisible = true; todo
         }
@@ -112,7 +114,7 @@ namespace Asteroid
 
         private Screen getStartScreen()
         {
-            return new GameScreen();
+            return new IntroScene();
         }
     }
 }

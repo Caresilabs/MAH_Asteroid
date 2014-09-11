@@ -80,6 +80,11 @@ namespace Asteroid.Entity
             isAlive = false;
         }
 
+        public void revivie()
+        {
+            isAlive = true;
+        }
+
         public bool isEntityAlive()
         {
             return isAlive;

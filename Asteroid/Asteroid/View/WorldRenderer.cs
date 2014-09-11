@@ -29,6 +29,7 @@ namespace Asteroid.View
 
         public void render(SpriteBatch batch, GraphicsDevice device)
         {
+            // begin batch with cameras matrix
             batch.Begin(SpriteSortMode.BackToFront,
                         BlendState.AlphaBlend,
                         null,
@@ -36,6 +37,8 @@ namespace Asteroid.View
                         null,
                         null,
                         camera.getMatrix(device));
+
+            device.SamplerStates[0] = SamplerState.PointClamp;
 
             drawBackground(batch);
 
