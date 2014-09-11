@@ -29,7 +29,7 @@ namespace Asteroid.Controller
 
         public override void init()
         {
-            state = 0;
+            this.state = 0;
         }
 
         public override void update(float delta)
@@ -56,6 +56,11 @@ namespace Asteroid.Controller
                 new Vector2(
                     getGraphics().Viewport.Width / 2 - Assets.font.MeasureString(introTexts[state]).Length() / 2,
                     getGraphics().Viewport.Height / 2 - 32), Color.White);
+                  //  ,0,
+        // Vector2.Zero,
+        // new Vector2(2,2),
+        // SpriteEffects.None,
+        // 0);
 
             batch.End();
         }

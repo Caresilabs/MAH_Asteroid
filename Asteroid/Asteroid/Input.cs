@@ -19,7 +19,7 @@ namespace Asteroid
         private GameScreen screen;
 
         private float shootTime;
-        private float reloadTime = .3f;
+        private float reloadTime = .25f;
 
         public Input(GameScreen game, GameEntity controlEntity)
         {

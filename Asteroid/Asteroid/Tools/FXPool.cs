@@ -6,11 +6,11 @@ using System.Text;
 
 namespace Asteroid.Tools
 {
-    class BulletPool : Pool<Bullet>
+    class FXPool : Pool<Particle>
     {
-        public override Bullet newObject()
+        public override Particle newObject()
         {
-            return new Bullet();
+            return new Particle();
         }
     }
 }

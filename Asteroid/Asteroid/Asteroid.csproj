@@ -79,7 +79,9 @@
     <Compile Include="Entity\Bullet.cs" />
     <Compile Include="Entity\GameEntity.cs" />
     <Compile Include="Entity\GameField.cs" />
+    <Compile Include="Entity\Particle.cs" />
     <Compile Include="Entity\Player.cs" />
+    <Compile Include="FXManager.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="Model\World.cs" />
     <Compile Include="Physic\ICollidable.cs" />
@@ -88,6 +90,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Screen.cs" />
     <Compile Include="Start.cs" />
+    <Compile Include="Tools\FXPool.cs" />
     <Compile Include="Tools\BulletPool.cs" />
     <Compile Include="Tools\Camera2D.cs" />
     <Compile Include="Tools\MathUtils.cs" />
