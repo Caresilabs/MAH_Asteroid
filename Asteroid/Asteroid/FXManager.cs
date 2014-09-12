@@ -12,8 +12,9 @@ namespace Asteroid
     public class FXManager
     {
         private FXPool pool;
-
         private List<Particle> particles;
+
+        private float particleSpeed = 600;
 
         public FXManager()
         {
@@ -23,19 +24,38 @@ namespace Asteroid
 
         public void explosion(Vector2 position)
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 60; i++)
             {
                 Particle p = pool.GetObject();
-                p.set(MathUtils.random(100), MathUtils.random(100), new Vector2(MathUtils.random(100), MathUtils.random(100)));
+                p.set(position.X, position.Y, MathUtils.random(-particleSpeed, particleSpeed),
+                    MathUtils.random(-particleSpeed, particleSpeed));
+                particles.Add(p);
+            }
+        }
+
+        public void playerExplosion(Vector2 position)
+        {
+            for (int i = 0; i < 120; i++)
+            {
+                Particle p = pool.GetObject();
+                p.set(position.X, position.Y, MathUtils.random(-particleSpeed, particleSpeed),
+                    MathUtils.random(-particleSpeed, particleSpeed));
+                p.setColor(Color.Red);
                 particles.Add(p);
             }
         }
 
         public void update(float delta)
         {
-            foreach (var item in particles)
+            for (int i = 0; i < particles.Count; i++)
             {
+                Particle item = particles[i];
                 item.update(delta);
+                if (! item.isParticleAlive())
+                {
+                    pool.ReleaseObject(item);
+                    particles.Remove(item);
+                }
             }
         }
 

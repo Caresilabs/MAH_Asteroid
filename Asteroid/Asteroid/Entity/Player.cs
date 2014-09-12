@@ -8,8 +8,8 @@ namespace Asteroid.Entity
 {
     public class Player : GameEntity
     {
-        public const float width = 58;
-        public const float height = 58;
+        public const float width = 48;
+        public const float height = 48;
 
         private int health;
 
@@ -36,7 +36,10 @@ namespace Asteroid.Entity
             {
                 subtractHealth();
                 entity.kill();
-                //todo checkIfDead(); 
+                world.getEffects().explosion(entity.getPosition());
+
+                //  setVelocity(entity.getVelocity().X *7, entity.getVelocity().Y *7); //todo
+                checkIfDead(); 
              }
         }
 
@@ -44,6 +47,7 @@ namespace Asteroid.Entity
         {
             if (health <= 0)
             {
+                world.getEffects().playerExplosion(getPosition());
                 kill();
             }
         }
@@ -56,6 +60,11 @@ namespace Asteroid.Entity
         public void addHealth()
         {
             health++;
+        }
+
+        public int getHealth()
+        {
+            return health;
         }
     }
 }

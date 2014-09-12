@@ -10,6 +10,8 @@ namespace Asteroid.Entity
 {
     public class AsteroidEntity : GameEntity
     {
+        public const int scorePoints = 50;
+
         public const float widthSmall = 40;
         public const float heightSmall = 40;
 
@@ -23,7 +25,8 @@ namespace Asteroid.Entity
             BIG, SMALL
         }
 
-        public AsteroidEntity(Texture2D texture, Type type, float x, float y) : base(texture, x, y, 0, 0)
+        public AsteroidEntity(Texture2D texture, Type type, float x, float y)
+            : base(texture, x, y, heightBig, heightBig)
         {
             this.type = type;
             if (type == Type.BIG)
@@ -55,6 +58,9 @@ namespace Asteroid.Entity
             }
             else if (entity.GetType() == typeof(Bullet))
             {
+                world.getEffects().explosion(getPosition());
+                world.addScore(scorePoints);
+
                 if (type == Type.BIG)
                 {
                     world.spawnAsteroid(Type.SMALL, getPosition());
@@ -68,5 +74,6 @@ namespace Asteroid.Entity
                 }
             }
         }
+
     }
 }

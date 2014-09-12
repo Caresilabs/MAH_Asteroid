@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\gravel.xnb</Output>
-      <Time>2014-09-10T13:21:31.3027703+02:00</Time>
+      <Output>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\gravel.xnb</Output>
+      <Time>2014-09-09T19:31:52.0124532+02:00</Time>
     </Item>
     <Item>
       <Source>Graphics\pixel.PNG</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\pixel.xnb</Output>
-      <Time>2014-09-10T13:21:31.3047713+02:00</Time>
+      <Output>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\pixel.xnb</Output>
+      <Time>2014-09-09T20:36:04.1657838+02:00</Time>
     </Item>
     <Item>
       <Source>Graphics\stars.jpg</Source>
@@ -25,17 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\stars.xnb</Output>
-      <Time>2014-09-10T13:34:45.1842531+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Graphics\astroid.png</Source>
-      <Name>Graphics\astroid</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\astroid.xnb</Output>
-      <Time>2014-09-11T12:05:25.1905926+02:00</Time>
+      <Output>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\stars.xnb</Output>
+      <Time>2014-09-11T16:36:32.885284+02:00</Time>
     </Item>
     <Item>
       <Source>Graphics\player.png</Source>
@@ -43,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\player.xnb</Output>
-      <Time>2014-09-10T13:29:39.8135333+02:00</Time>
+      <Output>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\player.xnb</Output>
+      <Time>2014-09-12T13:32:21.6487966+02:00</Time>
     </Item>
     <Item>
       <Source>Graphics\pointer.png</Source>
@@ -52,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\pointer.xnb</Output>
-      <Time>2014-09-11T12:06:25.529631+02:00</Time>
+      <Output>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\pointer.xnb</Output>
+      <Time>2014-09-11T16:36:32.8842839+02:00</Time>
     </Item>
     <Item>
       <Source>Font\font.spritefont</Source>
@@ -61,8 +52,44 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Font\font.xnb</Output>
-      <Time>2014-09-11T12:27:38.5991084+02:00</Time>
+      <Output>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Font\font.xnb</Output>
+      <Time>2014-09-11T16:36:32.8822838+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Graphics\heart.png</Source>
+      <Name>Graphics\heart</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\heart.xnb</Output>
+      <Time>2014-09-12T12:45:48.024421+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Graphics\astroid0.png</Source>
+      <Name>Graphics\astroid0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\astroid0.xnb</Output>
+      <Time>2014-09-12T14:11:54.2475015+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Graphics\astroid2.png</Source>
+      <Name>Graphics\astroid2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\astroid2.xnb</Output>
+      <Time>2014-09-12T14:10:15.5868584+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Graphics\astroid1.png</Source>
+      <Name>Graphics\astroid1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\astroid1.xnb</Output>
+      <Time>2014-09-12T14:21:40.7190457+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -71,10 +98,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\AsteroidContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Spellabbet\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\AsteroidContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -103,7 +130,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2014-08-18T15:31:39.322524+02:00</Value>
+        <Value>2014-09-09T14:33:55.0659504+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

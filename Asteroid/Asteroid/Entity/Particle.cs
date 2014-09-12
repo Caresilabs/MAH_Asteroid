@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Asteroid.Tools;
 
 namespace Asteroid.Entity
 {
-    public class Particle
+    public class Particle : IPoolable
     {
         private Vector2 position;
         private Vector2 velocity;
@@ -15,27 +16,61 @@ namespace Asteroid.Entity
 
         private Texture2D texture;
 
+        private bool isAlive;
+        private float maxAliveTime = 1.1f;
+        private float aliveTime;
+
         public Particle()
         {
             this.texture = Assets.getTexture("Graphics/pixel");
-            this.color = Color.Red;
+            this.color = Color.Gray;
+            this.isAlive = true;
+            this.position = new Vector2();
+            this.velocity = new Vector2();
         }
 
-        public void set(float x, float y, Vector2 velocity)
+        public void reset()
         {
-            this.position = new Vector2(x, y);
-            this.velocity = velocity;
+            aliveTime = 0;
+        }
+
+        public void set(float x, float y, float vx, float vy)
+        {
+            this.isAlive = true;
+
+            this.position.X = x;
+            this.position.Y = y;
+
+            this.velocity.X = vx;
+            this.velocity.Y = vy;
         }
 
         public void update(float delta)
         {
             position.X += velocity.X * delta;
             position.Y += velocity.Y * delta;
+
+            aliveTime += delta;
+            if (aliveTime > maxAliveTime)
+            {
+                isAlive = false;
+            }
         }
 
         public void draw(SpriteBatch batch)
         {
-            batch.Draw(texture, position, color);
+            if (isAlive)
+                batch.Draw(texture, position, color);
+        }
+
+        public void setColor(Color color)
+        {
+            this.color = color;
+        }
+
+        public bool isParticleAlive()
+        {
+            return isAlive;
         }
     }
 }

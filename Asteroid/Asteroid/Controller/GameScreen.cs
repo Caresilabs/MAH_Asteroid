@@ -19,6 +19,8 @@ namespace Asteroid.Controller
         private HUD hud;
         private GameState state;
 
+        private float stateTime;
+
         public enum GameState
         {
             PAUSED, RUNNING, GAMEOVER
@@ -31,11 +33,12 @@ namespace Asteroid.Controller
             this.hud = new HUD(this);
             this.input = new Input(this, world.getPlayer());
             this.state = GameState.PAUSED;
+            this.stateTime = 0;
         }
 
         public override void update(float delta)
         {
-            input.update(delta);
+            stateTime += delta;
 
             switch(state) {
                 case GameState.PAUSED:
@@ -44,6 +47,7 @@ namespace Asteroid.Controller
                         setState(GameState.RUNNING);
                     break;
                 case GameState.RUNNING:
+                     input.update(delta);
                      world.update(delta);
                      updatePlayer(delta);
 
@@ -53,9 +57,11 @@ namespace Asteroid.Controller
                     }
                     break;
                 case GameState.GAMEOVER:
+                    world.update(delta);
+
                     // Press "anykey" to restart
-                    if (Keyboard.GetState().GetPressedKeys().Length > 0 || Mouse.GetState().LeftButton == ButtonState.Pressed)
-                        setState(GameState.RUNNING);
+                    if (stateTime > 2 && (Keyboard.GetState().GetPressedKeys().Length > 0 || Mouse.GetState().LeftButton == ButtonState.Pressed))
+                        init();
                     break;
             }
         }
@@ -97,6 +103,7 @@ namespace Asteroid.Controller
 
         public void setState(GameState state) {
             this.state = state;
+            this.stateTime = 0;
         }
     }
 }

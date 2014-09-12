@@ -24,8 +24,9 @@ namespace Asteroid.Model
         private BulletPool bulletPool;
         private FXManager effects;
 
-        private float ViewPortWidth;
-        private float ViewPortHeight;
+        private float score;
+        private float spawnTime;
+        private float gameTime;
 
         public World()
         {
@@ -35,52 +36,79 @@ namespace Asteroid.Model
             // Add world to the entity class
             GameEntity.world = this;
 
+            this.score = 0;
+            this.gameTime = 0;
+            this.spawnTime = 100;
             this.field = new GameField((int)width, (int)height);
             this.bulletPool = new BulletPool();
             this.effects = new FXManager();
 
+            // Set up entity lists
             this.entities = new List<GameEntity>();
             this.deadEntities = new List<GameEntity>();
             this.spawnEntities = new List<GameEntity>();
 
-            player = new Player(80, 100);
+            this.player = new Player(80, 100);
             addEntity(player);
-
-            spawnAsteroid(AsteroidEntity.Type.BIG, new Vector2(100, 100));
         }
 
         public void spawnAsteroid(AsteroidEntity.Type type, Vector2 pos)
         {
             if (type == AsteroidEntity.Type.BIG)
             {
-                AsteroidEntity a = new AsteroidEntity(Assets.getTexture("Graphics/astroid"), type, pos.X, pos.Y);
+                AsteroidEntity a = new AsteroidEntity(Assets.getTexture("Graphics/astroid" + MathUtils.random(3)), type, pos.X, pos.Y);
                 addEntity(a);
             }
             else if (type == AsteroidEntity.Type.SMALL)
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    AsteroidEntity a = new AsteroidEntity(Assets.getTexture("Graphics/astroid"), type, pos.X, pos.Y);
+                    AsteroidEntity a = new AsteroidEntity(Assets.getTexture("Graphics/astroid" + MathUtils.random(3)), type,
+                        pos.X + -AsteroidEntity.widthSmall + (i * AsteroidEntity.widthSmall),
+                        pos.Y + -AsteroidEntity.heightSmall + (i * AsteroidEntity.heightSmall));//MathUtils.random(-AsteroidEntity.heightSmall, AsteroidEntity.heightSmall));
                     addEntity(a);
                 }
             }
         }
 
-        public void spawnAsteroid()
+        public void spawnAsteroid(int num)
         {
-            spawnAsteroid(AsteroidEntity.Type.BIG, new Vector2(MathUtils.random(field.getBounds().X, field.getBounds().X + width),
-                MathUtils.random(field.getBounds().Y, field.getBounds().Y + height)));
+            for (int i = 0; i < num; i++)
+            {
+                Vector2 ranPos;
+                for (int p = 0; p < 100; p++)
+                {
+                    ranPos = new Vector2(MathUtils.random(field.getBounds().X, field.getBounds().X + field.getBounds().Width),
+                       MathUtils.random(field.getBounds().Y, field.getBounds().Y + field.getBounds().Height));
+
+                    if (! overlapWithAsteroid(ranPos))
+                    {
+                        spawnAsteroid(AsteroidEntity.Type.BIG, ranPos);
+                        break;
+                    }
+                }
+            }
         }
 
         public void update(float delta)
         {
-            if (MathUtils.random(500) > 490)
-                spawnAsteroid();
-
             //Update particles
             effects.update(delta);
 
-           // effects.explosion(Vector2.Zero);
+            if (player.isEntityAlive()) // Add survial time score if not dead
+                addScore(delta * 2);
+
+            gameTime += delta;
+
+            if (spawnTime > 4)
+            {
+                spawnAsteroid((int)Math.Min(5, 2 + (gameTime/ 20))); // 2 at spawn and then increase with time
+                spawnTime = 0;
+            }
+            else
+            {
+                spawnTime += delta;
+            }
 
             foreach (GameEntity entity in entities)
             {
@@ -105,7 +133,8 @@ namespace Asteroid.Model
         {
             for (int i = 0; i < deadEntities.Count; i++)
             {
-                if (deadEntities[i].GetType() ==  typeof(Bullet)) {
+                if (deadEntities[i].GetType() == typeof(Bullet))
+                {
                     bulletPool.ReleaseObject((Bullet)deadEntities[i]);
                 }
                 entities.Remove(deadEntities[i]);
@@ -129,22 +158,22 @@ namespace Asteroid.Model
             switch (fd)
             {
                 case GameField.FieldHit.Left:
-                    entity.setX(field.getBounds().X + entity.getBounds().Width / 2);
+                    entity.setX(field.getBounds().X + GameField.thickness);
                     entity.flipVelocityX();
                     entity.collide(null);
                     break;
                 case GameField.FieldHit.Right:
-                    entity.setX(field.getBounds().X + field.getBounds().Width - entity.getBounds().Width / 2);
+                    entity.setX(field.getBounds().X + field.getBounds().Width - entity.getBounds().Width);
                     entity.flipVelocityX();
                     entity.collide(null);
                     break;
                 case GameField.FieldHit.Top:
-                    entity.setY(field.getBounds().Y + entity.getBounds().Height / 2);
+                    entity.setY(field.getBounds().Y + GameField.thickness);
                     entity.flipVelocityY();
                     entity.collide(null);
                     break;
                 case GameField.FieldHit.Bottom:
-                    entity.setY(field.getBounds().Y + field.getBounds().Height - entity.getBounds().Height / 2);
+                    entity.setY(field.getBounds().Y + field.getBounds().Height - entity.getBounds().Height);
                     entity.flipVelocityY();
                     entity.collide(null);
                     break;
@@ -156,15 +185,62 @@ namespace Asteroid.Model
             return false;
         }
 
-        public void shoot(GameEntity source, Vector2 pos, Vector2 velocity)
+        /// <summary>
+        /// Check if an asteroid is going to overlap with an existing asteroid
+        /// </summary>
+        /// <param name="pos"></param>
+        /// <returns></returns>
+        public bool overlapWithAsteroid(Vector2 pos)
+        {
+            Rectangle tempRect = new Rectangle((int)pos.X, (int)pos.Y, (int)AsteroidEntity.widthBig, (int)AsteroidEntity.heightBig);
+
+            // Check active entities
+            foreach (var item in entities)
+            {
+                if (item.GetType() != typeof(AsteroidEntity)) continue;
+
+                // Check if new spawn is a good place and also not on the player
+                if (tempRect.Intersects(item.getBounds()) || tempRect.Intersects(getPlayer().getBounds()))
+                {
+                    return true;
+                }
+            }
+
+            // Check spawn list
+            foreach (var item in spawnEntities)
+            {
+                if (item.GetType() != typeof(AsteroidEntity)) continue;
+
+                // Check if new spawn is a good place and also not on the player
+                if (tempRect.Intersects(item.getBounds()) || tempRect.Intersects(getPlayer().getBounds()))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public void shoot(GameEntity source, float x, float y, Vector2 velocity)
         {
             Bullet b = bulletPool.GetObject();
-            b.shoot(source, pos, velocity);
+            b.shoot(source, x, y, velocity);
             entities.Add(b);
         }
 
-        public void addEntity(GameEntity e) {
+        public void addEntity(GameEntity e)
+        {
             spawnEntities.Add(e);
+        }
+
+        public void addScore(float score)
+        {
+            this.score += score;
+        }
+
+        public int getScore()
+        {
+            return (int)score;
         }
 
         public List<GameEntity> getEntities()

@@ -20,10 +20,14 @@ namespace Asteroid
 
             // Load our assets
             loadTexture("Graphics/player");
-            loadTexture("Graphics/astroid");
             loadTexture("Graphics/stars");
             loadTexture("Graphics/pixel");
             loadTexture("Graphics/pointer");
+            loadTexture("Graphics/heart");
+
+            loadTexture("Graphics/astroid0");
+            loadTexture("Graphics/astroid1");
+            loadTexture("Graphics/astroid2");
 
             // Load font 
             font = manager.Load<SpriteFont>("Font/font");

@@ -89,7 +89,9 @@ namespace Asteroid
                     float y = -(float)Math.Sin(-entity.getRotation() + Math.PI / 2);
                     float x = (float)Math.Cos(-entity.getRotation() + Math.PI / 2);
 
-                    world.shoot(entity, entity.getPosition(), new Vector2(x * Bullet.bulletSpeed, y * Bullet.bulletSpeed));
+                    world.shoot(entity, entity.getPosition().X + entity.getBounds().Width/2,
+                        entity.getPosition().Y + entity.getBounds().Height / 2,
+                        new Vector2(x * Bullet.bulletSpeed, y * Bullet.bulletSpeed));
                     shootTime = reloadTime;
                 }
             }

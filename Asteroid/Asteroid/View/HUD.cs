@@ -37,6 +37,13 @@ namespace Asteroid.View
                     drawHUD(batch);
                     break;
                 case Asteroid.Controller.GameScreen.GameState.GAMEOVER:
+                    // Score
+                    batch.DrawString(Assets.font, "You scored: " + world.getScore(),
+                     new Vector2(
+                          screen.getGraphics().Viewport.Width / 2 - Assets.font.MeasureString("You scored: " + world.getScore()).Length() / 2, 140), Color.White);
+
+
+                    // Gameover
                     batch.DrawString(Assets.font, gameOverText,
                       new Vector2(
                            screen.getGraphics().Viewport.Width / 2 - Assets.font.MeasureString(gameOverText).Length() / 2,
@@ -49,7 +56,17 @@ namespace Asteroid.View
         private void drawHUD(SpriteBatch batch)
         {
             //todo
-             batch.DrawString(Assets.font, world.getPlayer().getPosition() + "", new Vector2(10, 10), Color.White);
+             //batch.DrawString(Assets.font, world.getPlayer().getPosition() + "", new Vector2(10, 10), Color.White);
+
+             batch.DrawString(Assets.font, "Score: " + world.getScore(),
+                      new Vector2(
+                           screen.getGraphics().Viewport.Width / 2 - Assets.font.MeasureString("Score: " + world.getScore()).Length() / 2, 30), Color.White);
+
+
+             for (int i = 0; i < world.getPlayer().getHealth(); i++)
+             {
+                 batch.Draw(Assets.getTexture("Graphics/heart"), new Vector2(i * (32) + 10, 10), Color.White);
+             }
         }
     }
 }
