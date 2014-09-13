@@ -32,28 +32,31 @@ namespace Asteroid.Physic
                 }
                 else if (ent.GetType() == typeof(Bullet))
                 {
-                   // if (((Bullet)ent).getSource() == entity) 
+                    // if (((Bullet)ent).getSource() == entity) 
                     //    continue;
                 }
 
                 if (entity.getBounds().Intersects(ent.getBounds()))
                 {
 
+                    // Delta position
                     float x = (entity.getPosition().X + (entity.getBounds().Width / 2)) - (ent.getPosition().X + (ent.getBounds().Width / 2));
                     float y = (entity.getPosition().Y + (entity.getBounds().Height / 2)) - (ent.getPosition().Y + (ent.getBounds().Height / 2));
 
+                    // Bounce, only if it is not a bullet
                     if (entity.GetType() != typeof(Bullet) && ent.GetType() != typeof(Bullet))
                     {
+                        // Check nearest corner
                         if (Math.Abs(x) > Math.Abs(y))
                         {
                             // reflect horizontally
                             entity.flipVelocityX();
                             ent.flipVelocityX();
-                            bool left = (x < 0);
 
+                            bool left = (x < 0);
                             if (left)
                             {
-                                entity.setPosition(ent.getPosition().X - entity.getBounds().Width, entity.getPosition().Y); 
+                                entity.setPosition(ent.getPosition().X - entity.getBounds().Width, entity.getPosition().Y);
                             }
                             else
                             {
@@ -62,12 +65,11 @@ namespace Asteroid.Physic
                         }
                         else
                         {
+                            // reflect vertically
                             entity.flipVelocityY();
                             ent.flipVelocityY();
-                            // reflect vertically
 
                             bool top = (y < 0);
-
                             if (top)
                             {
                                 entity.setPosition(entity.getPosition().X, ent.getPosition().Y - entity.getBounds().Height);
@@ -79,15 +81,11 @@ namespace Asteroid.Physic
                         }
                     }
 
-                    handleCollision(entity, ent);
+                    // then notify the entities about the collision
+                    entity.collide(ent);
+                    ent.collide(entity);
                 }
             }
-        }
-
-        private static void handleCollision(GameEntity e1, GameEntity e2)
-        {
-            e1.collide(e2);
-            e2.collide(e1);
         }
     }
 }

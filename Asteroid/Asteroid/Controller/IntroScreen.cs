@@ -19,8 +19,8 @@ namespace Asteroid.Controller
 
         private String[] introTexts = {
            "RETRO ALPHA MEGA DEMOLITION by Simon Bothen",
-           "In a galaxy far far away...",
-           "A ship called Ben, was faced...",
+           "In a galaxy far far away",
+           "A ship called Ben, was faced",
            "With terrible fate, indeed",
            "Under your command, he is",
            "'WASD keys', will steer",
@@ -30,7 +30,7 @@ namespace Asteroid.Controller
 
         public override void init()
         {
-            this.state = 0;
+            this.state = 0; 
         }
 
         public override void update(float delta)

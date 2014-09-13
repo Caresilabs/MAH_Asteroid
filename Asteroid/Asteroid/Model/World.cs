@@ -64,8 +64,8 @@ namespace Asteroid.Model
                 for (int i = 0; i < 3; i++)
                 {
                     AsteroidEntity a = new AsteroidEntity(Assets.getTexture("Graphics/astroid" + MathUtils.random(3)), type,
-                        pos.X + -AsteroidEntity.widthSmall + (i * AsteroidEntity.widthSmall),
-                        pos.Y + -AsteroidEntity.heightSmall + (i * AsteroidEntity.heightSmall));//MathUtils.random(-AsteroidEntity.heightSmall, AsteroidEntity.heightSmall));
+                        pos.X + -AsteroidEntity.widthSmall/2 + (i * AsteroidEntity.widthSmall/2),
+                        pos.Y + -AsteroidEntity.heightSmall/2 + (i * AsteroidEntity.heightSmall/2));//MathUtils.random(-AsteroidEntity.heightSmall, AsteroidEntity.heightSmall));
                     addEntity(a);
                 }
             }
@@ -104,7 +104,7 @@ namespace Asteroid.Model
 
                 if (spawnTime > 3.5f)
                 {
-                    spawnAsteroid((int)Math.Min(5, 2 + (gameTime / 15))); // 2 at spawn and then increase with time
+                    spawnAsteroid((int)Math.Min(5, 2 + (gameTime / 20))); // 2 at spawn and then increase with time
                     spawnTime = 0;
                 }
                 else
@@ -155,7 +155,7 @@ namespace Asteroid.Model
             spawnEntities.Clear();
         }
 
-        // Returns true if already is inside the field
+        // Returns true if already is inside the game field
         public bool putInsideField(GameEntity entity)
         {
             Asteroid.Entity.GameField.FieldHit fd = field.checkInside(entity);
@@ -189,11 +189,7 @@ namespace Asteroid.Model
             return false;
         }
 
-        /// <summary>
-        /// Check if an asteroid is going to overlap with an existing asteroid
-        /// </summary>
-        /// <param name="pos"></param>
-        /// <returns></returns>
+        // Check if an asteroid is going to overlap with an existing asteroid
         public bool overlapWithAsteroid(Vector2 pos)
         {
             Rectangle tempRect = new Rectangle((int)pos.X, (int)pos.Y, (int)AsteroidEntity.widthBig, (int)AsteroidEntity.heightBig);
@@ -268,6 +264,5 @@ namespace Asteroid.Model
         {
             return effects;
         }
-
     }
 }
