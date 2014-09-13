@@ -60,7 +60,7 @@ namespace Asteroid.Controller
                     world.update(delta);
 
                     // Press "anykey" to restart
-                    if (stateTime > 2 && (Keyboard.GetState().GetPressedKeys().Length > 0 || Mouse.GetState().LeftButton == ButtonState.Pressed))
+                    if (stateTime >= 3 && (Keyboard.GetState().GetPressedKeys().Length > 0 || Mouse.GetState().LeftButton == ButtonState.Pressed))
                         init();
                     break;
             }
@@ -69,7 +69,10 @@ namespace Asteroid.Controller
         private void updatePlayer(float delta)
         {
             // TODO follow player
-            renderer.getCamera().setPosition(world.getPlayer().getPosition());
+            renderer.getCamera().setPosition(
+                world.getPlayer().getPosition().X + world.getPlayer().getBounds().Width/2,
+                world.getPlayer().getPosition().Y + world.getPlayer().getBounds().Height / 2
+            );
         }
 
         public override void draw(SpriteBatch batch)
@@ -99,6 +102,11 @@ namespace Asteroid.Controller
         public GameState getState()
         {
             return state;
+        }
+
+        public float getStateTime()
+        {
+            return stateTime;
         }
 
         public void setState(GameState state) {

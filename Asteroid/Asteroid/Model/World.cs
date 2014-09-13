@@ -95,21 +95,25 @@ namespace Asteroid.Model
             //Update particles
             effects.update(delta);
 
-            if (player.isEntityAlive()) // Add survial time score if not dead
+            if (player.isEntityAlive())
+            { 
+                // Add survial time score if not dead
                 addScore(delta * 2);
 
-            gameTime += delta;
+                gameTime += delta;
 
-            if (spawnTime > 4)
-            {
-                spawnAsteroid((int)Math.Min(5, 2 + (gameTime/ 20))); // 2 at spawn and then increase with time
-                spawnTime = 0;
-            }
-            else
-            {
-                spawnTime += delta;
+                if (spawnTime > 3.5f)
+                {
+                    spawnAsteroid((int)Math.Min(5, 2 + (gameTime / 15))); // 2 at spawn and then increase with time
+                    spawnTime = 0;
+                }
+                else
+                {
+                    spawnTime += delta;
+                }
             }
 
+            // update entities
             foreach (GameEntity entity in entities)
             {
                 entity.update(delta);
@@ -197,24 +201,26 @@ namespace Asteroid.Model
             // Check active entities
             foreach (var item in entities)
             {
-                if (item.GetType() != typeof(AsteroidEntity)) continue;
-
-                // Check if new spawn is a good place and also not on the player
-                if (tempRect.Intersects(item.getBounds()) || tempRect.Intersects(getPlayer().getBounds()))
+                if (item.GetType() == typeof(AsteroidEntity) || item.GetType() == typeof(Player))
                 {
-                    return true;
+                    // Check if new spawn is a good place and also not on the player
+                    if (tempRect.Intersects(item.getBounds()) || tempRect.Intersects(getPlayer().getSafeZoneBounds()))
+                    {
+                        return true;
+                    }
                 }
             }
 
             // Check spawn list
             foreach (var item in spawnEntities)
             {
-                if (item.GetType() != typeof(AsteroidEntity)) continue;
-
-                // Check if new spawn is a good place and also not on the player
-                if (tempRect.Intersects(item.getBounds()) || tempRect.Intersects(getPlayer().getBounds()))
+                if (item.GetType() == typeof(AsteroidEntity) || item.GetType() == typeof(Player))
                 {
-                    return true;
+                    // Check if new spawn is a good place and also not on the player
+                    if (tempRect.Intersects(item.getBounds()) || tempRect.Intersects(getPlayer().getSafeZoneBounds()))
+                    {
+                        return true;
+                    }
                 }
             }
 

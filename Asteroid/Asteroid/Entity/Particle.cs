@@ -32,6 +32,7 @@ namespace Asteroid.Entity
         public void reset()
         {
             aliveTime = 0;
+            setColor(Color.Gray);
         }
 
         public void set(float x, float y, float vx, float vy)

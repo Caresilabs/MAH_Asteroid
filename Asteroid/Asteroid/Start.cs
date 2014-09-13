@@ -30,10 +30,8 @@ namespace Asteroid
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            //graphics.PreferredBackBufferWidth = 720;
-            //graphics.ApplyChanges();
-            //graphics.ToggleFullScreen();
-            // this.IsMouseVisible = true; todo
+            Window.Title = "RETRO ALPHA MEGA DEMOLITION by Simon Bothen"; //  set title to our game name
+            graphics.ToggleFullScreen();
         }
 
         /// <summary>

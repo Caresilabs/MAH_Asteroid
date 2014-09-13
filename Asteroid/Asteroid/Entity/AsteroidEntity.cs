@@ -40,7 +40,7 @@ namespace Asteroid.Entity
             setMaxSpeed(200);
             setFriction(0);
 
-            setVelocity(MathUtils.random(getMaxSpeed()), MathUtils.random(getMaxSpeed()));
+            setVelocity(MathUtils.random(getMaxSpeed()/4, getMaxSpeed()), MathUtils.random(getMaxSpeed()/4, getMaxSpeed()));
         }
 
         public override void update(float delta)
@@ -58,7 +58,7 @@ namespace Asteroid.Entity
             }
             else if (entity.GetType() == typeof(Bullet))
             {
-                world.getEffects().explosion(getPosition());
+                world.getEffects().explosion(getPosition().X + getBounds().Width/2, getPosition().Y + getBounds().Height/2);
                 world.addScore(scorePoints);
 
                 if (type == Type.BIG)

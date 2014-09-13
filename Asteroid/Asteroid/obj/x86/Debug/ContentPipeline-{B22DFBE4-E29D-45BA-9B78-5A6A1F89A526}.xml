@@ -62,7 +62,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\heart.xnb</Output>
-      <Time>2014-09-12T12:45:48.024421+02:00</Time>
+      <Time>2014-09-13T17:56:33.3294042+02:00</Time>
     </Item>
     <Item>
       <Source>Graphics\astroid0.png</Source>
@@ -71,7 +71,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Debug\Content\Graphics\astroid0.xnb</Output>
-      <Time>2014-09-12T14:11:54.2475015+02:00</Time>
+      <Time>2014-09-13T17:57:17.6529393+02:00</Time>
     </Item>
     <Item>
       <Source>Graphics\astroid2.png</Source>

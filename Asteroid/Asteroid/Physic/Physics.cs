@@ -53,11 +53,11 @@ namespace Asteroid.Physic
 
                             if (left)
                             {
-                                entity.setPosition(entity.getPosition().X - (ent.getBounds().Width - x), entity.getPosition().Y); 
+                                entity.setPosition(ent.getPosition().X - entity.getBounds().Width, entity.getPosition().Y); 
                             }
                             else
                             {
-                                entity.setPosition(entity.getPosition().X + (ent.getBounds().Width - x), entity.getPosition().Y);
+                                entity.setPosition(ent.getPosition().X + ent.getBounds().Width, entity.getPosition().Y);
                             }
                         }
                         else
@@ -70,11 +70,11 @@ namespace Asteroid.Physic
 
                             if (top)
                             {
-                                entity.setPosition(entity.getPosition().X, entity.getPosition().Y - (ent.getBounds().Height - y));
+                                entity.setPosition(entity.getPosition().X, ent.getPosition().Y - entity.getBounds().Height);
                             }
                             else
                             {
-                                entity.setPosition(entity.getPosition().X, entity.getPosition().Y + (ent.getBounds().Height - y));
+                                entity.setPosition(entity.getPosition().X, ent.getPosition().Y + ent.getBounds().Height);
                             }
                         }
                     }
