@@ -1,0 +1,16 @@
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Release\Content\Graphics\gravel.xnb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Release\Content\Graphics\pixel.xnb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Release\Content\Graphics\stars.xnb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Release\Content\Graphics\astroid0.xnb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Release\Content\Graphics\pointer.xnb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Release\Content\Graphics\heart.xnb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Release\Content\Graphics\player.xnb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Release\Content\Graphics\astroid2.xnb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Release\Content\Graphics\astroid1.xnb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Release\Content\Font\font.xnb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Release\Asteroid.exe
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\bin\x86\Release\Asteroid.pdb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Release\Asteroid.exe
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Release\Asteroid.pdb
+C:\Users\Simon\Documents\GitHub\MAH_Asteroid\Asteroid\Asteroid\obj\x86\Release\Asteroid.csprojResolveAssemblyReference.cache

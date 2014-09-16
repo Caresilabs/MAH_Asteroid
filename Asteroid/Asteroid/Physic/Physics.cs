@@ -27,51 +27,65 @@ namespace Asteroid.Physic
                 // Check if it is a bullet and the spawner cannot collide with it
                 if (entity.GetType() == typeof(Bullet))
                 {
-                    if (((Bullet)entity).getSource() == ent) continue;
+                    //if (((Bullet)entity).getSource() == ent) 
+                    //    continue;
                 }
                 else if (ent.GetType() == typeof(Bullet))
                 {
-                    if (((Bullet)ent).getSource() == entity) continue;
+                    // if (((Bullet)ent).getSource() == entity) 
+                    //    continue;
                 }
 
                 if (entity.getBounds().Intersects(ent.getBounds()))
                 {
 
+                    // Delta position
                     float x = (entity.getPosition().X + (entity.getBounds().Width / 2)) - (ent.getPosition().X + (ent.getBounds().Width / 2));
                     float y = (entity.getPosition().Y + (entity.getBounds().Height / 2)) - (ent.getPosition().Y + (ent.getBounds().Height / 2));
 
+                    // Bounce, only if it is not a bullet
                     if (entity.GetType() != typeof(Bullet) && ent.GetType() != typeof(Bullet))
+                    {
+                        // Check nearest corner
                         if (Math.Abs(x) > Math.Abs(y))
                         {
                             // reflect horizontally
                             entity.flipVelocityX();
-                            //.addVelocityStep();
-
                             ent.flipVelocityX();
-                            // ent.addVelocityStep();
 
-                            //entity.setPosition(entity.getPosition().X + y/2, entity.getPosition().Y + y/2);
+                            bool left = (x < 0);
+                            if (left)
+                            {
+                                entity.setPosition(ent.getPosition().X - entity.getBounds().Width, entity.getPosition().Y);
+                            }
+                            else
+                            {
+                                entity.setPosition(ent.getPosition().X + ent.getBounds().Width, entity.getPosition().Y);
+                            }
                         }
                         else
                         {
-                            entity.flipVelocityY();
-                            //entity.addVelocityStep();
-
-                            ent.flipVelocityY();
-                            //ent.addVelocityStep();
                             // reflect vertically
+                            entity.flipVelocityY();
+                            ent.flipVelocityY();
+
+                            bool top = (y < 0);
+                            if (top)
+                            {
+                                entity.setPosition(entity.getPosition().X, ent.getPosition().Y - entity.getBounds().Height);
+                            }
+                            else
+                            {
+                                entity.setPosition(entity.getPosition().X, ent.getPosition().Y + ent.getBounds().Height);
+                            }
                         }
+                    }
 
-                    handleCollision(entity, ent);
+                    // then notify the entities about the collision
+                    entity.collide(ent);
+                    ent.collide(entity);
                 }
-
             }
-        }
-
-        private static void handleCollision(GameEntity e1, GameEntity e2)
-        {
-            e1.collide(e2);
-            e2.collide(e1);
         }
     }
 }

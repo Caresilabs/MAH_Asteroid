@@ -12,24 +12,25 @@ namespace Asteroid.Controller
 {
     public class IntroScene : Screen
     {
-        private const float textTime = 1.5f;
+        private const float textTime = 3.5f;
 
         private int state;
         private float time;
 
         private String[] introTexts = {
-           "In a galaxy far far away...",
-           "A ship called Ben, was faced...",
-           "With a terrible fate...",
-           "He is now under your command!",
-           "He will listen to WASD keys",
+           "RETRO ALPHA MEGA DEMOLITION by Simon Bothen",
+           "In a galaxy far far away",
+           "A ship called Ben, was faced",
+           "With terrible fate, indeed",
+           "Under your command, he is",
+           "'WASD keys', will steer",
            "Shoot with mouse, he will",
-           "Good luck master!"
+           "Good luck my master!"
         };
 
         public override void init()
         {
-            this.state = 0;
+            this.state = 0; 
         }
 
         public override void update(float delta)

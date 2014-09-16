@@ -12,10 +12,10 @@ namespace Asteroid.Entity
     /// </summary>
     public class GameField
     {
-        private Rectangle bounds;
-        private Texture2D boundsTexture;
+        public static Rectangle bounds;
+        public static int thickness = 10;
 
-        private int thickness = 10;
+        private Texture2D boundsTexture;
 
         public enum FieldHit {
             Left, Right, Top, Bottom, Inside
@@ -23,7 +23,7 @@ namespace Asteroid.Entity
 
         public GameField(int width, int height)
         {
-            this.bounds = new Rectangle(-width / 2, -height / 2, width, height);
+            bounds = new Rectangle(-width / 2, -height / 2, width, height);
             this.boundsTexture = Assets.getTexture("Graphics/pixel");
         }
 
@@ -44,13 +44,13 @@ namespace Asteroid.Entity
 
         public FieldHit checkInside(GameEntity e)
         {
-            if (e.getPosition().X < bounds.X + e.getBounds().Width/2) return FieldHit.Left;
+            if (e.getPosition().X < bounds.X + thickness) return FieldHit.Left;
 
-            if (e.getPosition().X > bounds.X + bounds.Width - e.getBounds().Width/2) return FieldHit.Right;
+            if (e.getPosition().X > bounds.X + bounds.Width - e.getBounds().Width) return FieldHit.Right;
 
-            if (e.getPosition().Y > bounds.Y + bounds.Height - e.getBounds().Height / 2) return FieldHit.Bottom;
+            if (e.getPosition().Y > bounds.Y + bounds.Height - e.getBounds().Height) return FieldHit.Bottom;
 
-            if (e.getPosition().Y < bounds.Y + e.getBounds().Height/2) return FieldHit.Top;
+            if (e.getPosition().Y - thickness < bounds.Y) return FieldHit.Top;
 
             return FieldHit.Inside;
         }

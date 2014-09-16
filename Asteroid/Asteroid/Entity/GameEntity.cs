@@ -14,7 +14,8 @@ namespace Asteroid.Entity
     {
         public static World world;
 
-        // Defaults
+        public float zLayer = 0;
+
         private float maxSpeed = 2;
         private float speed = 40;
 
@@ -68,9 +69,15 @@ namespace Asteroid.Entity
             updateBounds();
         }
 
+        Rectangle drawRect = new Rectangle();
         public void draw(SpriteBatch batch)
         {
-            batch.Draw(texture, bounds, null, Color.White, rotation, origin, SpriteEffects.None, 0);
+            this.drawRect.Width = (int)width;
+            this.drawRect.Height = (int)height;
+            this.drawRect.X = (int)position.X + (int)width/2;
+            this.drawRect.Y = (int)position.Y + (int)height/2;
+
+            batch.Draw(texture, drawRect, null, Color.White, rotation, origin, SpriteEffects.None, zLayer);
         }
 
         public abstract void collide(GameEntity entity);
@@ -121,8 +128,8 @@ namespace Asteroid.Entity
         private void updateBounds()
         {
             // Position
-            this.bounds.X = (int)position.X;
-            this.bounds.Y = (int)position.Y;
+            this.bounds.X = (int)position.X; //- (int)width/2;
+            this.bounds.Y = (int)position.Y;// - (int)height/2;
             // Width
             this.bounds.Width = (int)width;
             this.bounds.Height = (int)height;

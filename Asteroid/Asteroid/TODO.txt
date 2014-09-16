@@ -1,0 +1,44 @@
+﻿I den här versionen av Asteroid skapas asteroider över tid på spelytan. Asteroiderna ska åka ut mot
+skärmkanten i slumpad riktning efter att de har skapats. Det är spelarens uppgift att skjuta sönder 
+asteroiderna innan de lämnar spelytan. För varje sönderskjuten asteroid får spelaren poäng som 
+visas tillsammans med spelets namn i fönstrets titel.
+
+
+Spelet skall innehålla följande (grundkrav):
+Det ska finnas minst en klass i projektet förutom de som skapas automatiskt från början.
+Spelet ska vara spelbart och kunna styras med hjälp av mus och tangentbord.
+
+
+Exempel på funktionalitet (ca poäng):
+ Minst två asteroider ska existera vid start (2p) !gonna do CHECK
+ Slumpad position på asteroid (2p) !gonna do CHECK
+ När asteroiderna skjuts sönder delas dem (4p) !gonna do CHECK
+ När en asteroid träffas syns en explosion (3p) !gonna prob do CHECK
+ Asteroider kan krocka med varandra (4p) !gonna do CHECK
+ HUD (2p) !gonna do CHECK
+ Liv-system (2p) !gonna do CHECK
+ Vinst/förlust (3p) !gonna do CHECK
+ Omstart (3p) !gonna prob do CHECK
+
+
+
+Exempel på bra kodstruktur
+Stor vikt kommer att läggas på hur koden är strukturerad.
+ Namngivning (1p) YUP I guess so
+ Läsbarhet (1p) YUP I guess so
+ Klassindelning (1p) YUP I guess so
+ Blockstorlek (1p) YUP I guess so
+ Konsekvent (1p) YUP I guess so
+
+
+Betygsskala:
+F: Do nothing
+E: Grundkrav
+D: Grundkrav + 5p
+
+target_grade = {
+	C: Grundkrav + 10p
+	B: Grundkrav + 16p, varav 3p kodstruktur
+	A: Grundkrav + 22p, varav 5p kodstruktur
+}
+
