@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Asteroid.Entity;
 using Asteroid.Model;
+using Asteroid.Tools;
 using Asteroid.View;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -37,6 +38,7 @@ namespace Asteroid.Controller
             this.state = GameState.PAUSED;
             this.stateTime = 0;
             this.scoredHighscore = false;
+            this.highscore = SaveManager.getHighscore();
         }
 
         public override void update(float delta)
@@ -61,6 +63,7 @@ namespace Asteroid.Controller
                         {
                             highscore = world.getScore();
                             scoredHighscore = true;
+                            SaveManager.saveHighscore(world.getScore());
                         }
                     }
                     break;
@@ -126,6 +129,11 @@ namespace Asteroid.Controller
         public void setState(GameState state) {
             this.state = state;
             this.stateTime = 0;
+        }
+
+        public int getHighscore()
+        {
+            return highscore;
         }
     }
 }

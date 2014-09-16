@@ -89,7 +89,7 @@ namespace Asteroid
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // Draw screen
             currentScreen.draw(spriteBatch);

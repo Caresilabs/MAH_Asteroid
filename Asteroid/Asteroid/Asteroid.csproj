@@ -95,6 +95,7 @@
     <Compile Include="Tools\Camera2D.cs" />
     <Compile Include="Tools\MathUtils.cs" />
     <Compile Include="Tools\Pool.cs" />
+    <Compile Include="Tools\SaveManager.cs" />
     <Compile Include="View\HUD.cs" />
     <Compile Include="View\WorldRenderer.cs" />
   </ItemGroup>

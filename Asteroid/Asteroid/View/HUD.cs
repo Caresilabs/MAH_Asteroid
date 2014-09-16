@@ -43,14 +43,14 @@ namespace Asteroid.View
                         // highscore!
                         batch.DrawString(Assets.font, "HIGHSCORE!!",
                          new Vector2(
-                              screen.getGraphics().Viewport.Width / 2 - Assets.font.MeasureString("HIGHSCORE!!").Length() / 1, 80), Color.Red, -(float)Math.PI/15, Vector2.Zero, new Vector2(2,2), SpriteEffects.None, 0);
+                              screen.getGraphics().Viewport.Width / 2 - Assets.font.MeasureString("HIGHSCORE!!").Length() / 1, 120), Color.Red, -(float)Math.PI/15, Vector2.Zero, new Vector2(2,2), SpriteEffects.None, 0);
                     }
 
 
                     // Score
                     batch.DrawString(Assets.font, "You scored: " + world.getScore(),
                      new Vector2(
-                          screen.getGraphics().Viewport.Width / 2 - Assets.font.MeasureString("You scored: " + world.getScore()).Length() / 2, 160), Color.White);
+                          screen.getGraphics().Viewport.Width / 2 - Assets.font.MeasureString("You scored: " + world.getScore()).Length() / 2, 210), Color.White);
 
                     // Draw count down
                     if (screen.getStateTime() < 3)
@@ -75,17 +75,17 @@ namespace Asteroid.View
 
         private void drawHUD(SpriteBatch batch)
         {
-            //todo
-            //batch.DrawString(Assets.font, world.getPlayer().getPosition() + "", new Vector2(10, 10), Color.White);
+            batch.DrawString(Assets.font, "Highscore: "  + screen.getHighscore(), new Vector2(10, 10), Color.White);
 
             batch.DrawString(Assets.font, "Score: " + world.getScore(),
                      new Vector2(
                           screen.getGraphics().Viewport.Width / 2 - Assets.font.MeasureString("Score: " + world.getScore()).Length() / 2, 30), Color.White);
 
 
+            // draw lives
             for (int i = 0; i < world.getPlayer().getHealth(); i++)
             {
-                batch.Draw(Assets.getTexture("Graphics/heart"), new Vector2(i * (32) + 10, 10), Color.White);
+                batch.Draw(Assets.getTexture("Graphics/heart"), new Vector2(i * (32) + 10, 40), Color.White);
             }
         }
     }

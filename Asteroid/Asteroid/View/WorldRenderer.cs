@@ -22,7 +22,7 @@ namespace Asteroid.View
         {
             this.world = world;
             this.camera = new Camera2D();
-            this.camera.setZoom(1.7f);
+            this.camera.setZoom(1.6f);
 
             this.bg = Assets.getTexture("Graphics/stars");
             this.bgBounds = new Rectangle(world.getField().getBounds().X - 400, world.getField().getBounds().Y - 400,
