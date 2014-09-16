@@ -10,7 +10,7 @@ namespace Asteroid.Entity
 {
     public class Bullet : GameEntity, IPoolable
     {
-        public static int bulletSpeed = 900;
+        public static int bulletSpeed = 1000;
 
         private static int bulletSize = 8;
         private GameEntity source;

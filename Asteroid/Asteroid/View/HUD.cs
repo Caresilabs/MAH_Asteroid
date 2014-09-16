@@ -37,6 +37,16 @@ namespace Asteroid.View
                     drawHUD(batch);
                     break;
                 case Asteroid.Controller.GameScreen.GameState.GAMEOVER:
+
+                    if (screen.isHighscore())
+                    {
+                        // highscore!
+                        batch.DrawString(Assets.font, "HIGHSCORE!!",
+                         new Vector2(
+                              screen.getGraphics().Viewport.Width / 2 - Assets.font.MeasureString("HIGHSCORE!!").Length() / 1, 80), Color.Red, -(float)Math.PI/15, Vector2.Zero, new Vector2(2,2), SpriteEffects.None, 0);
+                    }
+
+
                     // Score
                     batch.DrawString(Assets.font, "You scored: " + world.getScore(),
                      new Vector2(
@@ -47,8 +57,8 @@ namespace Asteroid.View
                     {
                         batch.DrawString(Assets.font, ((int)(4 - screen.getStateTime())).ToString(),
                           new Vector2(
-                               screen.getGraphics().Viewport.Width / 2 - Assets.font.MeasureString(((int)(4 - screen.getStateTime())).ToString()).Length() / 2,
-                               screen.getGraphics().Viewport.Height / 2 + 16), Color.White);
+                               screen.getGraphics().Viewport.Width / 2 - Assets.font.MeasureString(((int)(4 - screen.getStateTime())).ToString()).Length() / 1,
+                               screen.getGraphics().Viewport.Height / 2 + 16), Color.White, 0, Vector2.Zero, new Vector2(2, 2), SpriteEffects.None, 0);
                     }
                     else
                     {

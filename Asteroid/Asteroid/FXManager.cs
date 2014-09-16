@@ -35,7 +35,7 @@ namespace Asteroid
 
         public void playerExplosion(Vector2 position)
         {
-            for (int i = 0; i < 120; i++)
+            for (int i = 0; i < 200; i++)
             {
                 Particle p = pool.GetObject();
                 p.set(position.X, position.Y, MathUtils.random(-particleSpeed, particleSpeed),
@@ -47,7 +47,7 @@ namespace Asteroid
 
         public void playerHit(float x, float y)
         {
-            for (int i = 0; i < 60; i++)
+            for (int i = 0; i < 120; i++)
             {
                 Particle p = pool.GetObject();
                 p.set(x, y, MathUtils.random(-particleSpeed, particleSpeed),

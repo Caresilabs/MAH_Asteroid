@@ -20,6 +20,8 @@ namespace Asteroid.Controller
         private GameState state;
 
         private float stateTime;
+        private int highscore;
+        private bool scoredHighscore; 
 
         public enum GameState
         {
@@ -34,6 +36,7 @@ namespace Asteroid.Controller
             this.input = new Input(this, world.getPlayer());
             this.state = GameState.PAUSED;
             this.stateTime = 0;
+            this.scoredHighscore = false;
         }
 
         public override void update(float delta)
@@ -54,6 +57,11 @@ namespace Asteroid.Controller
                     // Check if player is dead
                     if (world.getPlayer().isEntityAlive() == false) {
                         setState(GameState.GAMEOVER);
+                        if (world.getScore() > highscore)
+                        {
+                            highscore = world.getScore();
+                            scoredHighscore = true;
+                        }
                     }
                     break;
                 case GameState.GAMEOVER:
@@ -83,6 +91,7 @@ namespace Asteroid.Controller
             renderer.render(batch, getGraphics());
 
             //Draw HUD
+            //batch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
             batch.Begin();
             hud.draw(batch);
             batch.End();
@@ -107,6 +116,11 @@ namespace Asteroid.Controller
         public float getStateTime()
         {
             return stateTime;
+        }
+
+        public bool isHighscore()
+        {
+            return scoredHighscore;
         }
 
         public void setState(GameState state) {

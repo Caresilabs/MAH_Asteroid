@@ -1,10 +1,10 @@
 Content\Graphics\gravel.xnb
 Content\Graphics\pixel.xnb
 Content\Graphics\stars.xnb
-Content\Graphics\player.xnb
-Content\Graphics\pointer.xnb
-Content\Font\font.xnb
-Content\Graphics\heart.xnb
 Content\Graphics\astroid0.xnb
+Content\Graphics\pointer.xnb
+Content\Graphics\heart.xnb
+Content\Graphics\player.xnb
 Content\Graphics\astroid2.xnb
 Content\Graphics\astroid1.xnb
+Content\Font\font.xnb
