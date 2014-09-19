@@ -12,6 +12,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Asteroid.Controller
 {
+    /**
+     * A game screen that manages the world, renderer and input and put them togheter in a convenient way
+     */
     public class GameScreen : Screen
     {
         private World world;

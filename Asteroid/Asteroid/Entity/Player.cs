@@ -19,7 +19,7 @@ namespace Asteroid.Entity
 
         public Player(float x, float y) : base(Assets.getTexture("Graphics/player"), x, y, width, height)
         {
-            this.safeZoneBounds = new Rectangle();
+            this.safeZoneBounds = new Rectangle((int)(getBounds().X - Player.width * 2.5f),  (int)(getBounds().Y - Player.height * 2.5f), (int)Player.width * 5, (int)Player.height * 5);
             this.health = 3;
         }
 
@@ -50,7 +50,6 @@ namespace Asteroid.Entity
                 world.getEffects().playerHit(getPosition().X, getPosition().Y);
                 world.getEffects().explosion(entity.getPosition().X + entity.getBounds().Width / 2, entity.getPosition().Y + entity.getBounds().Height / 2);
 
-                //  setVelocity(entity.getVelocity().X *7, entity.getVelocity().Y *7); //todo
                 checkIfDead(); 
              }
         }

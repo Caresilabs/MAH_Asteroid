@@ -22,18 +22,18 @@ namespace Asteroid.Physic
             foreach (GameEntity ent in world.getEntities())
             {
                 if (ent == entity) continue; // Cant collide with itsef
-                if (!ent.isEntityAlive()) continue;
+                if (!ent.isEntityAlive()) continue; // Must be alive
 
                 // Check if it is a bullet and the spawner cannot collide with it
                 if (entity.GetType() == typeof(Bullet))
                 {
-                    //if (((Bullet)entity).getSource() == ent) 
-                    //    continue;
+                    if (((Bullet)entity).getSource() == ent) 
+                        continue;
                 }
                 else if (ent.GetType() == typeof(Bullet))
                 {
-                    // if (((Bullet)ent).getSource() == entity) 
-                    //    continue;
+                    if (((Bullet)ent).getSource() == entity) 
+                        continue;
                 }
 
                 if (entity.getBounds().Intersects(ent.getBounds()))
@@ -83,7 +83,8 @@ namespace Asteroid.Physic
 
                     // then notify the entities about the collision
                     entity.collide(ent);
-                    ent.collide(entity);
+                    if (ent.isEntityAlive() && entity.isEntityAlive()) // Check again if he is alive
+                      ent.collide(entity);
                 }
             }
         }

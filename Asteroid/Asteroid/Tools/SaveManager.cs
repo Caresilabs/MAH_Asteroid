@@ -7,11 +7,12 @@ using Microsoft.Xna.Framework;
 
 namespace Asteroid.Tools
 {
+    /**
+     * Savemanager saves the highscore but can be expanded in the future for a top5 list and save states
+     */
     public class SaveManager
     {
-        public static void init() {
-
-        }
+        public static void init() {}
 
         public static void saveHighscore(int highscore)
         {

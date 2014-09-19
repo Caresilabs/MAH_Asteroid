@@ -10,6 +10,9 @@ using Microsoft.Xna.Framework;
 
 namespace Asteroid.View
 {
+    /**
+     * This class is responsible for drawing the game, thats it. AKA the 'View' in MVC pattern
+     */
     public class WorldRenderer
     {
         private World world;

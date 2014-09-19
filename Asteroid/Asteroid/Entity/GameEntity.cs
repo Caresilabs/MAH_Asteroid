@@ -10,6 +10,9 @@ using Asteroid.Model;
 
 namespace Asteroid.Entity
 {
+    /*
+     * Basic game entity
+     */
     public abstract class GameEntity : ICollidable
     {
         public static World world;
@@ -69,7 +72,7 @@ namespace Asteroid.Entity
             updateBounds();
         }
 
-        Rectangle drawRect = new Rectangle();
+        private  Rectangle drawRect = new Rectangle();
         public virtual void draw(SpriteBatch batch)
         {
             this.drawRect.Width = (int)width;

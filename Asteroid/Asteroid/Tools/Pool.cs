@@ -11,6 +11,10 @@ namespace Asteroid.Tools
         void reset();
     }
 
+    /**
+     * This fun little class keeps the Garbage collector happy! :D
+     * It uses a pool that we can pick up objects from and then put them back after use to avoid heavy allocation
+     */
     public abstract class Pool<T>
     {
         private List<T> _available = new List<T>();

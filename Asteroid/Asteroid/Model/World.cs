@@ -52,6 +52,7 @@ namespace Asteroid.Model
             addEntity(player);
         }
 
+        // Spawn an asteroid, small or big
         public void spawnAsteroid(AsteroidEntity.Type type, Vector2 pos)
         {
             if (type == AsteroidEntity.Type.BIG)
@@ -71,6 +72,7 @@ namespace Asteroid.Model
             }
         }
 
+        // Spawn a big asteroid at random location
         public void spawnAsteroid(int num)
         {
             for (int i = 0; i < num; i++)
@@ -81,6 +83,7 @@ namespace Asteroid.Model
                     ranPos = new Vector2(MathUtils.random(field.getBounds().X, field.getBounds().X + field.getBounds().Width),
                        MathUtils.random(field.getBounds().Y, field.getBounds().Y + field.getBounds().Height));
 
+                    // Check if not overlapping with another entity
                     if (! overlapWithAsteroid(ranPos))
                     {
                         spawnAsteroid(AsteroidEntity.Type.BIG, ranPos);
@@ -102,6 +105,7 @@ namespace Asteroid.Model
 
                 gameTime += delta;
 
+                // Handle asteroid spawn
                 if (spawnTime > 3.5f)
                 {
                     spawnAsteroid((int)Math.Min(5, 2 + (gameTime / 20))); // 2 at spawn and then increase with time
@@ -133,6 +137,7 @@ namespace Asteroid.Model
             updateSpawnEntities();
         }
 
+        // Remove dead entities from game
         private void updateRemoveDeadEntities()
         {
             for (int i = 0; i < deadEntities.Count; i++)
@@ -146,6 +151,7 @@ namespace Asteroid.Model
             deadEntities.Clear();
         }
 
+        // Spawn new entities into game
         private void updateSpawnEntities()
         {
             for (int i = 0; i < spawnEntities.Count; i++)
@@ -223,6 +229,7 @@ namespace Asteroid.Model
             return false;
         }
 
+        // Shoot from @x, @y with @velocity
         public void shoot(GameEntity source, float x, float y, Vector2 velocity)
         {
             Bullet b = bulletPool.GetObject();

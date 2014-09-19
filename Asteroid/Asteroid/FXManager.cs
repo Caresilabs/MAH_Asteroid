@@ -65,7 +65,7 @@ namespace Asteroid
                 item.update(delta);
                 if (! item.isParticleAlive())
                 {
-                    pool.ReleaseObject(item);
+                    pool.ReleaseObject(item); // put the object back in the pool
                     particles.Remove(item);
                 }
             }

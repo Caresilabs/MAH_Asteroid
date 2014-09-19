@@ -23,6 +23,7 @@ namespace Asteroid.View
             this.screen = game;
         }
 
+        // DRAW UI
         public void draw(SpriteBatch batch)
         {
             switch (screen.getState())
@@ -73,6 +74,7 @@ namespace Asteroid.View
 
         }
 
+        // Draw game HUD
         private void drawHUD(SpriteBatch batch)
         {
             batch.DrawString(Assets.font, "Highscore: "  + screen.getHighscore(), new Vector2(10, 10), Color.White);

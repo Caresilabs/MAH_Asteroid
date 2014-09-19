@@ -55,6 +55,7 @@ namespace Asteroid
             this.spriteBatch = new SpriteBatch(GraphicsDevice);
             Assets.load(Content);
 
+            // Load mouse
             this.mouseTex = Assets.getTexture("Graphics/pointer");
             this.mousePosition = new Vector2();
 

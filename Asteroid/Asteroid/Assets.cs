@@ -7,6 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Asteroid
 {
+    /**
+     * Assets loads all the needed assets and a non cumbersome way to retrieve them
+     */
     public class Assets
     {
         private static Dictionary<String, Texture2D> textures;

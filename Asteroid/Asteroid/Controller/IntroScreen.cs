@@ -12,7 +12,7 @@ namespace Asteroid.Controller
 {
     public class IntroScene : Screen
     {
-        private const float textTime = .5f;
+        private const float textTime = 3.5f;
 
         private int state;
         private float time;
@@ -30,7 +30,7 @@ namespace Asteroid.Controller
 
         public override void init()
         {
-            this.state = 0; 
+            this.state = 0;
         }
 
         public override void update(float delta)
@@ -50,25 +50,19 @@ namespace Asteroid.Controller
         {
             getGraphics().Clear(Color.Black);
 
-            //Draw HUD
             batch.Begin();
 
-            batch.DrawString(Assets.font, introTexts[state], 
+            // Draw story text
+            batch.DrawString(Assets.font, introTexts[state],
                 new Vector2(
                     getGraphics().Viewport.Width / 2 - Assets.font.MeasureString(introTexts[state]).Length() / 2,
                     getGraphics().Viewport.Height / 2 - 32), Color.White);
-                  //  ,0,
-        // Vector2.Zero,
-        // new Vector2(2,2),
-        // SpriteEffects.None,
-        // 0);
 
             batch.End();
         }
 
         public override void dispose()
         {
-
         }
     }
 }

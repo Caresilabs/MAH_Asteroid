@@ -6,7 +6,9 @@ using Microsoft.Xna.Framework;
 
 namespace Asteroid.Tools
 {
-
+    /**
+     * Simple class for simple math calculations
+     */
     public class MathUtils
     {
         public static Random rnd = new Random();

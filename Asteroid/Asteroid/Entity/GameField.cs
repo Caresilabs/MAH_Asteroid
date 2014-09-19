@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Asteroid.Entity
 {
-    /// <summary>
-    /// This class manage the game field where player are allowed to be in
-    /// </summary>
+    /**
+     *  This class manage the game field where player are allowed to be in
+     */
     public class GameField
     {
         public static Rectangle bounds;

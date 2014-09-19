@@ -7,6 +7,10 @@ using System.Text;
 
 namespace Asteroid.Tools
 {
+    /**
+     * Camera makes the live a lot easier by translating a matrix and then tell the spritebatch to translate all objects by the values
+     * set in this class
+     */
     public class Camera2D
     {
         private float zoom;
@@ -17,11 +21,12 @@ namespace Asteroid.Tools
 
         public Camera2D()
         {
-            rotation = 0f;
-            zoom = 1f;
-            position = Vector2.Zero;
+            this.rotation = 0f;
+            this.zoom = 1f;
+            this.position = Vector2.Zero;
         }
 
+        // Gets the matrix used by the spritebatch
         public Matrix getMatrix(GraphicsDevice graphicsDevice)
         {
             transform =
@@ -58,7 +63,6 @@ namespace Asteroid.Tools
         {
             position += amount;
         }
-
 
         public Vector2 getPosition()
         {
