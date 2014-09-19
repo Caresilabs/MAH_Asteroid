@@ -70,7 +70,7 @@ namespace Asteroid.Entity
         }
 
         Rectangle drawRect = new Rectangle();
-        public void draw(SpriteBatch batch)
+        public virtual void draw(SpriteBatch batch)
         {
             this.drawRect.Width = (int)width;
             this.drawRect.Height = (int)height;

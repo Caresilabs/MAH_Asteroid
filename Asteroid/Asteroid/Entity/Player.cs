@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Asteroid.Entity
 {
@@ -27,10 +28,10 @@ namespace Asteroid.Entity
             base.update(delta);
 
             // update safe zone
-            safeZoneBounds.X = (int)(getBounds().X - Player.width * 3);
-            safeZoneBounds.Y = (int)(getBounds().Y - Player.height * 3);
-            safeZoneBounds.Width = (int)(getBounds().Width + Player.width * 3);
-            safeZoneBounds.Height = (int)(getBounds().Height + Player.height * 3);
+            safeZoneBounds.X = (int)(getBounds().X - Player.width * 2.5f);
+            safeZoneBounds.Y = (int)(getBounds().Y - Player.height * 2.5f);
+            safeZoneBounds.Width = (int)Player.width * 5;
+            safeZoneBounds.Height = (int)Player.height * 5;
 
             //update player
             Physics.processCollision(this);

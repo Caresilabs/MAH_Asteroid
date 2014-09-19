@@ -19,7 +19,6 @@ namespace Asteroid
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        private SpriteFont font;
 
         private Screen currentScreen;
 
@@ -30,8 +29,14 @@ namespace Asteroid
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            graphics.PreferMultiSampling = false;
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight= 720;
+
+            // graphics.ToggleFullScreen();
+           // Window.AllowUserResizing = true;
             Window.Title = "RETRO ALPHA MEGA DEMOLITION by Simon Bothen"; //  set title to our game name
-            graphics.ToggleFullScreen();
         }
 
         /// <summary>
@@ -84,7 +89,7 @@ namespace Asteroid
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // Draw screen
             currentScreen.draw(spriteBatch);
