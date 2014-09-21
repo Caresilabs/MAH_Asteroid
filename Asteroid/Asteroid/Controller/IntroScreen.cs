@@ -12,7 +12,7 @@ namespace Asteroid.Controller
 {
     public class IntroScene : Screen
     {
-        private const float textTime = 3.5f;
+        private const float textTime = 2.65f;
 
         private int state;
         private float time;

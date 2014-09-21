@@ -41,7 +41,6 @@ namespace Asteroid.Entity
         {
             source = null;
             setPosition(-1000, -1000);
-            setAcceleration(0, 0);
             setVelocity(0, 0);
         }
 

@@ -30,7 +30,6 @@ namespace Asteroid.Entity
 
         private Vector2 position;
         private Vector2 velocity;
-        private Vector2 acceleration;
         private Vector2 origin;
 
         private Rectangle bounds;
@@ -45,7 +44,6 @@ namespace Asteroid.Entity
             this.texture = tex;
             this.position = new Vector2(x, y);
             this.velocity = new Vector2();
-            this.acceleration = new Vector2();
             this.origin = new Vector2();
             this.bounds = new Rectangle();
             this.width = width;
@@ -57,9 +55,6 @@ namespace Asteroid.Entity
 
         public virtual void update(float delta)
         {
-            velocity.X += acceleration.X * delta;
-            velocity.Y += acceleration.Y * delta;
-
             // Friction
             velocity.X *= Math.Min((1 - friction), 1f);
             velocity.Y *= Math.Min((1 - friction), 1f);
@@ -166,18 +161,12 @@ namespace Asteroid.Entity
             return position;
         }
 
-        public void addAcceleration(float x, float y)
+        public void addVelocity(float x, float y)
         {
             velocity.X += x;
             velocity.Y += y;
 
             MathUtils.clamp(velocity, -maxSpeed, maxSpeed);
-        }
-
-        public void setAcceleration(float x, float y)
-        {
-            this.acceleration.X = x;
-            this.acceleration.Y = y;
         }
 
         public void setSpeed(float speed)
@@ -231,11 +220,6 @@ namespace Asteroid.Entity
         public void flipVelocityY()
         {
             this.velocity.Y *= -1;
-        }
-
-        public Vector2 getAcceleration()
-        {
-            return acceleration;
         }
 
         public Texture2D getTexture()

@@ -33,44 +33,23 @@ namespace Asteroid
             // Vertical
             if (Keyboard.GetState().IsKeyDown(Keys.W))
             {
-                //float y = (float)Math.Sin(-entity.getRotation() + Math.PI / 2);
-               // float x = (float)Math.Cos(-entity.getRotation() + Math.PI / 2);
-
-                entity.addAcceleration(0,  -entity.getSpeed());
+                entity.addVelocity(0, -entity.getSpeed());
             } else 
             
             if (Keyboard.GetState().IsKeyDown(Keys.S))
             {
-                entity.addAcceleration(0, entity.getSpeed());
-            }
-            else
-            {
-                entity.setAcceleration(entity.getAcceleration().X, 0);
+                entity.addVelocity(0, entity.getSpeed());
             }
 
 
             // Horizontal
             if (Keyboard.GetState().IsKeyDown(Keys.A))
             {
-                entity.addAcceleration(-entity.getSpeed(), 0);
-                //entity.rotate(-delta*3);
+                entity.addVelocity(-entity.getSpeed(), 0);
             } else 
             if (Keyboard.GetState().IsKeyDown(Keys.D))
             {
-                entity.addAcceleration(entity.getSpeed(), 0);
-               // entity.rotate(delta*3);
-            }
-            else
-            {
-                entity.setAcceleration(0, entity.getAcceleration().Y);
-            }
-
-            if (!Keyboard.GetState().IsKeyDown(Keys.W) && 
-                !Keyboard.GetState().IsKeyDown(Keys.S) &&
-                !Keyboard.GetState().IsKeyDown(Keys.A) &&
-                !Keyboard.GetState().IsKeyDown(Keys.D))
-            {
-               // entity.setAcceleration(0, 0);
+                entity.addVelocity(entity.getSpeed(), 0);
             }
 
             // Calc angle
